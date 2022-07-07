@@ -547,6 +547,24 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <plugin>
+                        <groupId>com.atlassian.drs</groupId>
+                        <artifactId>dependency-report-maven-plugin</artifactId>
+                        <version>1.4.1</version>
+                        <configuration>
+                            <project>atlassian-slack-integration-server</project>
+                            <unitTestCodeCoveragePaths>${project.build.outputDirectory}/jacoco.exec</unitTestCodeCoveragePaths>
+                            <gracefulFailure>true</gracefulFailure>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                    <goal>upload</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
