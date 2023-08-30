@@ -391,12 +391,14 @@
         <!-- Show panel only if: -->
         <!--     1. User is logged in -->
         <!-- AND 2. Panel is not hidden in settings -->
+        <!-- AND 3. Project has Slack Workspace configured -->
         <!-- AND   3a. User is global admin -->
         <!--    OR 3b. User is project admin -->
         <!--    OR 3c. User can modify issue (regular not admin user) -->
         <conditions type="AND">
             <condition class="com.atlassian.jira.plugin.webfragment.conditions.UserLoggedInCondition"/>
             <condition class="com.atlassian.jira.plugins.slack.web.condition.ShowIssuePanelCondition"/>
+            <condition class="com.atlassian.jira.plugins.slack.web.condition.ProjectHasSlackWorkspaceCondition"/>
             <conditions type="OR">
                 <condition class="com.atlassian.jira.plugin.webfragment.conditions.UserIsAdminCondition" />
                 <condition class="com.atlassian.jira.plugin.webfragment.conditions.HasProjectPermissionCondition">
